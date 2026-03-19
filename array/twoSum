@@ -1,0 +1,17 @@
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+    n = len(nums)
+
+    # brute
+    # for i in range(n):
+    #     for j in range(1,n):
+    #         if nums[i] + nums[j] == target and i!=j:
+    #             return [i,j]
+
+
+    # actual - using dict
+    nums_dict = {}
+    for i in range(n):
+        diff = target - nums[i]
+        if diff in nums_dict:
+            return [nums_dict[diff],i]
+        nums_dict[nums[i]] = i
