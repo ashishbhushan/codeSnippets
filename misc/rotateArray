@@ -1,0 +1,18 @@
+def rotate(self, nums: List[int], k: int) -> None:
+    """
+    Do not return anything, modify nums in-place instead.
+    """
+    # def shift(arr):
+    #     n = len(arr)
+    #     temp = arr[-1]
+    #     for i in range(n-2,-1,-1):
+    #         arr[i+1] = arr[i]
+    #     arr[0] = temp
+    #     return arr
+    # for i in range(k%len(nums)):
+    #     shift(nums)
+    
+    k = k%len(nums)
+    nums.reverse()
+    nums[:k] = reversed(nums[:k])
+    nums[k:] = reversed(nums[k:])
