@@ -1,0 +1,16 @@
+def maxProfit(self, prices: List[int]) -> int:
+    prof = 0
+    n = len(prices)
+
+    # for i in range(n):
+    #     for j in range(i,n):
+    #         if prices[j]>prices[i]:
+    #             prof = prices[j]-prices[i]
+    #             maxprof = max(prof, maxprof)
+
+    buyprice = prices[0]
+    for i in range(1,n):
+        buyprice = prices[i] if prices[i]<buyprice else buyprice
+        prof = max(prof, prices[i]-buyprice)
+
+    return prof
