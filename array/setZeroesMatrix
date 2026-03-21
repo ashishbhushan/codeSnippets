@@ -1,0 +1,21 @@
+def setZeroes(self, matrix: List[List[int]]) -> None:
+    """
+    Do not return anything, modify matrix in-place instead.
+    """
+    zerorows = set()
+    zerocols = set()
+    rows = len(matrix)
+    cols = len(matrix[0])
+    for i in range(rows):
+        for j in range(cols):
+            if matrix[i][j] == 0:
+                zerorows.add(i)
+                zerocols.add(j)
+
+    for i in zerorows:
+        matrix[i] = [0]*(cols)
+
+    for i in range(cols):
+        if i in zerocols:
+            for row in range(rows):
+                matrix[row][i] = 0
